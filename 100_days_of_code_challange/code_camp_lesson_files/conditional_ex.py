@@ -59,3 +59,6 @@ if (e3hour>40):
     print("you should earn:", 40*e3pay + (e3hour-40)*(e3pay*1.5))
 else:    
     print("you should earn:", e3hour * e3pay)
+
+    #testing for git changes
+    
