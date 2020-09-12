@@ -88,7 +88,7 @@ for l in oufile:
     l = l.split()
     for s in l: #Add each new word to the dictionary, and increase any extant words value by 1
         counts[s] = counts.get(s,0)+1
-print(counts)
+
 #cycle through the dictionary, replacing any each successive lower count with a higher one
 bigkey = None
 bigcount = None 
@@ -98,3 +98,24 @@ for key,count in counts.items():
         bigcount = count 
 print(bigkey)
 print(bigcount)
+
+
+#lets generate a top ten words list now:
+#two methods: list comprehension, and classic algorithms
+ordered = sorted( [ (v,k) for k,v in counts.items() ], reverse=True ) #list comprehension method: generates a list of v,k tuples which were created from the values k,v out of the 
+#counts.items() function
+print(ordered[:10])
+
+#algorithm method needs to:
+#1 convert the counts dictionary into a list of reversed tuples [(b,a),...]
+#2 sort the list in descending order
+#3 print the top ten words
+
+#part 1: converting to a list
+countlist = []
+for k,v in counts.items() :
+    countlist.append( (v,k) ) #append only takes 1 item at a time, need to append as a tuple (brackets in brackets)
+
+countlistsorted = sorted(countlist, reverse=True) #reverse sort for descending order
+
+print(countlistsorted[:10])
