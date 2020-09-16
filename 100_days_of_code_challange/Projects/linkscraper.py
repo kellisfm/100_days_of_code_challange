@@ -19,8 +19,8 @@ def linkgrab(url): #goes the the target url and extracts all the links that fall
     ctx.check_hostname = False
     ctx.verify_mode = ssl.CERT_NONE
 
-    html = urllib.request.urlopen(url, context=ctx).read()
-    soup = BeautifulSoup(html, 'html.parser')
+    html = str(urllib.request.urlopen(url, context=ctx).read())
+    soup = BeautifulSoup(html, 'html.parser') #converting to string saves 20+ seconds in the nuclear throne wikiread for somereason
     #downfin = perf_counter_ns()
     #print("Page retrival time:", downfin-downstart)
     

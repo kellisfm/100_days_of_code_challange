@@ -19,7 +19,7 @@ class is a reserved word
 . is the object lookup operator
 so stuff.get() is looking up the get method within the list class
 """
-class PartyAnimal: #
+class PartyAnimal: 
     x = 0
     name = ""
     def __init__(self,nam):
