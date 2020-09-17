@@ -6,36 +6,56 @@ prints them in columns formatted according to the specifications found in proj_d
 
 Author: Kai Ellis
 Date: 2020-09-16
-Tomorrow i need to figure out how to use the .format function
 """
-
-def arithmatic_arranger(l,tf = False):
+import re
+def arithmetic_arranger(l,tf = False):
     if len(l) > 5: #check to see if there are more than five problems entered
-        print("please enter five or less problems")
-        quit()
-    count = 0 #this will enable ease of user troubleshooting
-    for entry in l: #split all the problems into their component parts
-        entry = entry.rstrip()
-        entry = entry.lstrip()
-        entry = entry.split()
+        return("Error: Too many problems.")
 
-        if len(entry)!= 3: #make sure the problems have been submitted as two numbers and an operator seperated by spaces
-            print("Problem", count+1, "is misformatted, please enter as: number + or - number")
-        if len(entry[0]) > 4 or len(entry[2]) > 4: #check 4 digit max
-            print("Problem", count+1, "has a number greater than 4 digets long, please reduce length")
-            quit()
-        print(entry)
-        l[count] = entry
-        l[count].append(len(max(l[count],key = len)))
+    count = 0
+
+    for entry in l: #this loop splits the entry into its component parts, allowing us to test for entry errors, and enabling further string manipulation
+        
+        entrylist = entry.split()
+
+        if len(entrylist[0]) > 4 or len(entrylist[2]) > 4: #check 4 digit max
+            return "Error: Numbers cannot be more than four digits."
+
+        if not re.match("[+-]",entrylist[1]): #check to see if they have entered an operator other than +-
+            return "Error: Operator must be '+' or '-'."
+
+        if re.search(r"\D", entrylist[0]) or re.search(r"\D", entrylist[2]): #confirm there are only diget characters
+            return "Error: Numbers must only contain digits."
+
+        l[count] = entrylist #enter the now broken down equation into the list
+        l[count].append(len(max(l[count],key = len))) #longest number's length, saved for future formatting use
+
+        if tf == True: #checks if they want an answer, provides if yes
+            l[count].append(eval(entry))
+
         count += 1
-    print(l)
-    toprow = "\t"
+
+    toprow = ""
     bottomrow = ""
-    for entry in l: 
-        toprow += ("{:<0}{1}\t".format(entry[0]))
-    print(toprow)
-    print("done")
-if __name__ == "__main__":
+    line = ""
+    answerline = ""
+    for entry in l: #runs through each problem entry and formats them by parts (top number, bottom number, line, and potentially answer)
+        indent = ">" + str(entry[3])
+        toprow += ("  " + format(entry[0],indent) + "    ")
+        bottomrow += ( entry[1] + " " + format(entry[2],indent) + "    ")
+        line += "-"*(entry[3] + 2) + "    "
+
+        if tf == True: #formats the answer, if desired
+            ansindent = ">" + str(entry[3]+1)
+            answerline += " " + format(entry[4],ansindent) + "    "
+
+    finreturn = (toprow.rstrip() + "\n" + bottomrow.rstrip() + "\n" + line.rstrip()) #merge the component parts into one final answer string
+
+    if tf == True: #add answer if neccissary
+        finreturn += ("\n" + answerline.rstrip())
     
-    x = ["1512 + 5", "2 + 2","52 - 21", "162 - 5"]
-    arithmatic_arranger(x)
+    return finreturn #return final format
+
+if __name__ == "__main__":
+    x = ["32 - 698", "1 - 3801", "45 + 43", "123 + 49"]
+    print(arithmetic_arranger(x, True))
