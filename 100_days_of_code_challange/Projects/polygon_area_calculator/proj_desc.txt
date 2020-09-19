@@ -1,0 +1,32 @@
+create a class rectangle and subclass square:
+
+rectangle should be created with width and height attributes, should contain the following methods:
+
+set_width(int):
+
+set_height(int):
+
+get_area ():
+returns w*h
+
+get_perimeter():
+returns 2*w+2*h
+
+get_diagonal():
+returns: (w**2 + h**2)**0.5
+
+get_picture():
+returns a string that represts the shape with lines of *s, should print entire shape not just outside lines.
+if w or h > 50, return too big for picture
+
+get_amount_inside(shape):
+returns the number of times the passed shape could fit inside the method instance.
+
+__str__:
+returns Rectangle(width = x, height = y)
+
+square, same as rectangle, but should take only a single side length with both width and height being set identically
+
+contains:
+set_side(int):
+sets the side length
