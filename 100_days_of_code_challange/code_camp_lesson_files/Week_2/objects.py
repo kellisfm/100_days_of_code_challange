@@ -46,6 +46,7 @@ class FootballFan(PartyAnimal): #putting in the bracket allows inheritance of al
         print(self.name,"party count", self.points)
 s = PartyAnimal("sally")
 s.party()
+s.party()
 
 j = FootballFan("jim")
 j.party()
