@@ -14,17 +14,22 @@ Improve my python coding capacity, particularly in: data visualization, analysis
 
 relearn HTML/CSS (I haven't touched these languages in 6 years!)
 
-Learn basic javascript
+Learn some javascript
 
 ### I am currently learning from:
 
 Freecodecamp (https://www.freecodecamp.org/)
 
-Scientific computing with python certification (in progress)
+Scientific computing with python certification (Completed!)
 
-medium term goal courses: 
+Data analysis with python certification (in progress)
 
-Data analysis with python certification (not started)
+medium term goal:
 
 Machine learning with python certification (not started)
+
+longer term goal:
+
+responsive web design certification (not started)
+javascript algorithms and data structures certification (not started)
 
