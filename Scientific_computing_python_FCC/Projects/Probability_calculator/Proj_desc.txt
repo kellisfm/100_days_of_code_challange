@@ -1,0 +1,15 @@
+create an class called Hat, it should take a variable number of arguments that specify the number of each type of balls that are in a hat
+
+it should have a contents list that contains one item for each ball in the hat
+
+class should have a draw method, that takes a number as an argument and returns a list of strings represented the drawn balls
+
+there should also be an experiment(hat,expected_balls,num_balls_drawn,num_experiments): function that takes:
+
+a hat class object
+
+a dictionary of what balls you want to be drawn
+
+the number of balls drawn per experiment
+
+the number of experimental draws, higher more accurate in theory
