@@ -22,11 +22,11 @@ Freecodecamp (https://www.freecodecamp.org/)
 
 Scientific computing with python certification (Completed!)
 
-Data analysis with python certification (in progress)
+Data analysis with python certification (Completed!)
 
 medium term goal:
 
-Machine learning with python certification (not started)
+Machine learning with python certification (In progress)
 
 longer term goal:
 
