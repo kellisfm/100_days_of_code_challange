@@ -4,7 +4,7 @@ To improve my coding skills I have decided to do a 30 days of code challange.
 
 ### My daily goals are two-fold:
 
-get at least 1 hour of coding in each day for the next #0 days
+get at least 1 hour of coding in each day for the next 30 days
 
 upload my code to github each day
 
